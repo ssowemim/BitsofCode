@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function commaSeparateNumber(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return parts.join(".");
+        }
+
+        var a = 0;
+        $(window).scroll(function() {
+
+            var oTop = $('#counter').offset().top - window.innerHeight;
+            if (a == 0 && $(window).scrollTop() > oTop) {
+                $('.counter-value').each(function() {
+                    var $this = $(this),
+                        countTo = $this.attr('data-count');
+                    $({
+                        countNum: $this.text()
+                    }).animate({
+                            countNum: countTo
+                        },
+                        {
+                            duration: 2000,
+                            easing: 'swing',
+                            step: function() {
+                                $this.text(commaSeparateNumber(Math.floor(this.countNum)));
+                            },
+                            complete: function() {
+                                $this.text(commaSeparateNumber(this.countNum));
+                            }
+                        });
+                });
+                a = 1;
+            }
+        });
+
+    </script>
+</head>
+
+
+<body>
+<div id="counter">
+    <div class="container">
+        <div class="row paddingT110">
+            <div class="col col-md-4 counter-value" data-count="75" data-desc="+ Full time Job Opportunities">0</div>
+            <div class="col col-md-4 counter-value" data-count="15000" data-desc="sqft indoor grow facility">0</div>
+            <div class="col col-md-4 counter-value" data-count="30000" data-desc="kg of Cannabis produced annually">0</div>
+        </div>
+    </div>
+</div>
+</body>
+
+<style>
+    .counter-value {
+        font-size: 60px;
+        line-height:2em;
+        text-align:center;
+        padding:17px 0;
+    }
+    .counter-value:after {
+        content: attr(data-desc);
+        display:block;
+        text-transform:uppercase;
+        font-size: 14px;
+        line-height:1.2em;
+    }
+
+    .paddingT50 {
+        padding-top: 50%;
+    }
+
+    .paddingT110 {
+        padding-top: 110%;
+    }
+
+    .paddingT150 {
+        padding-top: 150%;
+    }
+</style>
+
+</html>
