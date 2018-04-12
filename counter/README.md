@@ -1,5 +1,3 @@
 **TO BE UPDATED**
 
-Allows you to Change the logo on a SquareSpace page change 'https://abc.com/' to actual picture url
-
-_April 11, 2018_
+_April 4, 2018_
