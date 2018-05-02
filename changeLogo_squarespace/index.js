@@ -2,5 +2,5 @@
     </script>
 
     <script>
-    $(function() {$('.Header-branding').find('img').attr('src', 'https://abc.com/')})
+    $(function() {$('.Header-branding').find('img').attr('src', 'https://abc.com/image.jpg')})
     </script>
